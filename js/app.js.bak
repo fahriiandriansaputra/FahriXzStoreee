@@ -1,0 +1,26 @@
+// firebase.js - Firebase Configuration
+// ============================================================================
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, ref, push, set, onValue, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDjSUSuUWl6GOh_vJ-GnYV1tvguv0_pRXI",
+  authDomain: "fahrixzstore.firebaseapp.com",
+  databaseURL: "https://fahrixzstore-default-rtdb.firebaseio.com",
+  projectId: "fahrixzstore",
+  storageBucket: "fahrixzstore.firebasestorage.app",
+  messagingSenderId: "1070736619563",
+  appId: "1:1070736619563:web:735cdd57d5c90373e1526e",
+  measurementId: "G-H7QL79SSMX"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const analytics = getAnalytics(app);
+
+// Export untuk digunakan di file lain
+export { db, app, analytics };
+
+console.log("✅ Firebase initialized!");
