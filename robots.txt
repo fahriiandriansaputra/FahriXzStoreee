@@ -1,0 +1,6 @@
+User-agent: *
+
+Allow: /
+
+Sitemap:
+https://fahriiandriansaputra.github.io/FahriXz-storee/sitemap.xml

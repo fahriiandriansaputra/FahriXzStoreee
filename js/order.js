@@ -1,0 +1,156 @@
+import {
+initializeApp
+}
+from
+'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+
+import {
+getDatabase,
+ref,
+push
+}
+from
+'https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js';
+
+/* FIREBASE */
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDjSUSuUWl6GOh_vJ-GnYV1tvguv0_pRXI",
+
+authDomain:
+"fahrixzstore.firebaseapp.com",
+
+databaseURL:
+"https://fahrixzstore-default-rtdb.firebaseio.com",
+
+projectId:
+"fahrixzstore",
+
+storageBucket:
+"fahrixzstore.appspot.com",
+
+messagingSenderId:
+"1070736619563",
+
+appId:
+"G-H7QL79SSMX",
+
+measurementId:
+"G-H7QL79SSMX"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getDatabase(app);
+
+/* ORDER ID */
+
+function generateOrderId(){
+
+const random =
+Math.floor(
+1000 + Math.random() * 9000
+);
+
+return `ORD-${random}`;
+
+}
+
+/* SUBMIT */
+
+window.submitOrder =
+async function(){
+
+const name =
+document.getElementById(
+'customerName'
+).value;
+
+const wa =
+document.getElementById(
+'customerWa'
+).value;
+
+const product =
+document.getElementById(
+'productSelect'
+).value;
+
+const brief =
+document.getElementById(
+'orderBrief'
+).value;
+
+const deadline =
+document.getElementById(
+'deadlineInput'
+).value;
+
+if(!name || !wa){
+
+alert('Lengkapi data');
+
+return;
+
+}
+
+const orderId =
+generateOrderId();
+
+await push(
+ref(db,'orders'),
+{
+
+orderId,
+name,
+wa,
+product,
+brief,
+deadline,
+
+status:'Pending',
+
+createdAt:Date.now()
+
+}
+
+);
+
+document.getElementById(
+'orderResult'
+).innerHTML =
+
+`
+<div class="order-card">
+
+<h2>Pesanan Berhasil</h2>
+
+<p>Order ID: ${orderId}</p>
+
+<p>Status: Pending</p>
+
+</div>
+`;
+
+const message =
+
+`Halo Admin,
+Saya sudah membuat pesanan.
+
+Order ID: ${orderId}
+
+Produk: ${product}
+
+Nama: ${name}`;
+
+window.open(
+
+`https://wa.me/6285609949819?text=${encodeURIComponent(message)}`
+
+);
+
+}

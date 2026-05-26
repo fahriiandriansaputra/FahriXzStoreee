@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Review Produk</title>
+
+<link rel="stylesheet"
+href="css/dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="content">
+
+<h1>
+⭐ Review Produk
+</h1>
+
+<div class="tracking-box">
+
+<input
+type="text"
+id="reviewName"
+placeholder="Nama Anda">
+
+<select id="reviewRating">
+
+<option value="5">
+⭐⭐⭐⭐⭐
+</option>
+
+<option value="4">
+⭐⭐⭐⭐
+</option>
+
+<option value="3">
+⭐⭐⭐
+</option>
+
+<option value="2">
+⭐⭐
+</option>
+
+<option value="1">
+⭐
+</option>
+
+</select>
+
+<textarea
+id="reviewMessage"
+placeholder="Tulis review..."></textarea>
+
+<button onclick="sendReview()">
+Kirim Review
+</button>
+
+</div>
+
+<div id="reviewContainer">
+
+</div>
+
+</div>
+
+<script type="module"
+src="js/review.js"></script>
+
+</body>
+</html>

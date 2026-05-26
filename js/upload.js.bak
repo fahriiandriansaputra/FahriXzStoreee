@@ -1,0 +1,90 @@
+import {
+
+initializeApp
+
+}
+
+from
+
+'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+
+import {
+
+getStorage,
+ref,
+uploadBytes,
+getDownloadURL
+
+}
+
+from
+
+'https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js';
+
+/* =========================
+FIREBASE CONFIG
+========================= */
+
+const firebaseConfig = {
+
+apiKey: "YOUR_API_KEY",
+
+authDomain:
+"YOUR_PROJECT.firebaseapp.com",
+
+projectId:
+"YOUR_PROJECT_ID",
+
+storageBucket:
+"YOUR_BUCKET.appspot.com",
+
+messagingSenderId:
+"YOUR_SENDER_ID",
+
+appId:
+"YOUR_APP_ID"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const storage =
+getStorage(app);
+
+/* =========================
+UPLOAD FILE
+========================= */
+
+window.uploadFile =
+async function(file){
+
+if(!file){
+
+alert(
+'File belum dipilih'
+);
+
+return;
+
+}
+
+const storageRef =
+ref(
+storage,
+'uploads/' + file.name
+);
+
+await uploadBytes(
+storageRef,
+file
+);
+
+const downloadURL =
+await getDownloadURL(
+storageRef
+);
+
+return downloadURL;
+
+};

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>User Dashboard</title>
+
+<link rel="stylesheet" href="css/dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<button onclick="sendVerifyEmail()">
+📧 Verifikasi Email
+</button>
+
+<script type="module" src="js/verify-email.js"></script>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>FahriXZ</h2>
+
+<a href="#">
+🏠 Dashboard
+</a>
+
+<a href="#">
+📦 Order Saya
+</a>
+
+<a href="#">
+💰 Wallet
+</a>
+
+<a href="#">
+🎟 Voucher
+</a>
+
+<a href="#">
+🎯 Misi
+</a>
+
+<a href="#">
+⚙ Pengaturan
+</a>
+
+<button onclick="logoutUser()">
+Logout
+</button>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="content">
+
+<h1>
+👋 Selamat Datang
+</h1>
+
+<div id="userProfile"
+class="profile-box">
+
+Loading...
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats-grid">
+
+<div class="stats-card">
+
+<h2>12</h2>
+
+<p>Total Order</p>
+
+</div>
+
+<div class="stats-card">
+
+<h2>Rp250.000</h2>
+
+<p>Saldo Wallet</p>
+
+</div>
+
+<div class="stats-card">
+
+<h2>Gold</h2>
+
+<p>Membership</p>
+
+</div>
+
+</div>
+
+<!-- TRACKING -->
+
+<div class="tracking-box">
+
+<h2>
+📦 Tracking Pesanan
+</h2>
+
+<div class="track-form">
+
+<input
+type="text"
+id="trackInput"
+placeholder="Masukkan Order ID">
+
+<button onclick="trackOrder()">
+Cek
+</button>
+
+</div>
+
+<div id="trackResult"></div>
+
+</div>
+
+<!-- ORDER -->
+
+<div class="order-box">
+
+<h2>
+🛒 Order Saya
+</h2>
+
+<div id="orderList"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module" src="js/realtime.js"></script>
+
+</body>
+</html>

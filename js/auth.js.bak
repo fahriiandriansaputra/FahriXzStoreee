@@ -1,0 +1,199 @@
+import {
+
+initializeApp
+
+}
+
+from
+
+'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+
+import {
+
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+GoogleAuthProvider,
+signInWithPopup
+
+}
+
+from
+
+'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDjSUSuUWl6GOh_vJ-GnYV1tvguv0_pRXI",
+
+authDomain:
+"fahrixzstore.firebasestorage.app",
+
+projectId:
+"fahrixzstore",
+
+storageBucket:
+"fahrixzstore.firebasestorage.app",
+
+messagingSenderId:
+"1070736619563",
+
+appId:
+"G-H7QL79SSMX"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+/* =========================
+REGISTER
+========================= */
+
+window.registerUser =
+async function(){
+
+const name =
+document.getElementById(
+'registerName'
+).value;
+
+const email =
+document.getElementById(
+'registerEmail'
+).value;
+
+const password =
+document.getElementById(
+'registerPassword'
+).value;
+
+if(
+!name ||
+!email ||
+!password
+){
+
+alert('Lengkapi data');
+
+return;
+
+}
+
+try{
+
+await
+createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+alert(
+'Register berhasil'
+);
+
+window.location =
+'login.html';
+
+}
+
+catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+/* =========================
+LOGIN
+========================= */
+
+window.loginUser =
+async function(){
+
+if(!validateCaptcha()) return;
+
+if(!checkRateLimit()) return;
+
+const email =
+document.getElementById(
+'loginEmail'
+).value;
+
+const password =
+document.getElementById(
+'loginPassword'
+).value;
+
+if(
+!email ||
+!password
+){
+
+alert('Isi email dan password');
+
+return;
+
+}
+
+try{
+
+await
+signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+alert(
+'Login berhasil'
+);
+
+window.location =
+'user.html';
+
+}
+
+catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+/* =========================
+GOOGLE LOGIN
+========================= */
+
+window.googleLogin =
+async function(){
+
+try{
+
+const provider =
+new GoogleAuthProvider();
+
+await
+signInWithPopup(
+auth,
+provider
+);
+
+window.location =
+'user.html';
+
+}
+
+catch(error){
+
+alert(error.message);
+
+}
+
+};

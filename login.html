@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login - FahriXZ Store</title>
+
+<link rel="stylesheet" href="css/auth.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="captcha-box">
+
+<h3 id="captchaText"></h3>
+
+<input
+type="text"
+id="captchaInput"
+placeholder="Masukkan captcha">
+
+</div>
+
+<script src="js/captcha.js"></script>
+
+<div class="auth-container">
+
+<div class="auth-card">
+
+<h1>Login</h1>
+
+<p>Masuk ke akun FahriXZ Store</p>
+
+<input
+type="email"
+id="loginEmail"
+placeholder="Masukkan Email">
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Masukkan Password">
+
+<button onclick="loginUser()">
+Login
+</button>
+
+<button onclick="googleLogin()" class="google-btn">
+Login Dengan Google
+</button>
+
+<div class="auth-footer">
+
+Belum punya akun?
+
+<a href="register.html">
+Daftar
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/rate-limit.js"></script>
+<script type="module" src="js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Analytics Dashboard</title>
+
+<link rel="stylesheet" href="css/admin.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="admin-dashboard">
+
+<div class="admin-sidebar">
+
+<h2>
+Analytics
+</h2>
+
+<a href="#">
+📊 Statistik
+</a>
+
+<a href="#">
+💰 Pendapatan
+</a>
+
+<a href="#">
+🛒 Produk
+</a>
+
+<a href="#">
+👥 User
+</a>
+
+</div>
+
+<div class="admin-content">
+
+<h1>
+📈 Statistik Website
+</h1>
+
+<div class="admin-stats">
+
+<div class="admin-card">
+
+<h2>
+Rp25.000.000
+</h2>
+
+<p>
+Pendapatan Bulanan
+</p>
+
+</div>
+
+<div class="admin-card">
+
+<h2>
+2.500
+</h2>
+
+<p>
+Total Order
+</p>
+
+</div>
+
+<div class="admin-card">
+
+<h2>
+1.250
+</h2>
+
+<p>
+User Aktif
+</p>
+
+</div>
+
+</div>
+
+<div class="admin-box">
+
+<h2>
+📊 Grafik Order
+</h2>
+
+<canvas id="orderChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const ctx =
+document.getElementById(
+'orderChart'
+);
+
+new Chart(ctx,{
+
+type:'line',
+
+data:{
+
+labels:[
+'Sen',
+'Sel',
+'Rab',
+'Kam',
+'Jum',
+'Sab',
+'Min'
+],
+
+datasets:[{
+
+label:'Order',
+
+data:[
+12,
+19,
+10,
+15,
+25,
+32,
+40
+],
+
+borderWidth:3
+
+}]
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

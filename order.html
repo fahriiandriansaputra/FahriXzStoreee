@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order Layanan</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="order-page">
+
+<div class="order-container">
+
+<h1>
+🛒 Form Order
+</h1>
+
+<p>
+Silakan isi detail pesanan
+</p>
+
+<input
+type="text"
+id="customerName"
+placeholder="Nama Lengkap">
+
+<input
+type="text"
+id="customerWa"
+placeholder="Nomor WhatsApp">
+
+<select id="productSelect">
+
+<option>
+Dana Premium
+</option>
+
+<option>
+QRIS Merchant
+</option>
+
+<option>
+Video Editing
+</option>
+
+<option>
+Poster Design
+</option>
+
+<option>
+Social Media Boost
+</option>
+
+</select>
+
+<textarea
+id="orderBrief"
+placeholder="Brief atau detail pesanan"></textarea>
+
+<input
+type="date"
+id="deadlineInput">
+
+<input
+type="file"
+id="fileUpload">
+
+<button onclick="submitOrder()">
+Buat Pesanan
+</button>
+
+<div id="orderResult"></div>
+
+</div>
+
+</div>
+
+<script type="module" src="js/orders.js"></script>
+
+</body>
+</html>
