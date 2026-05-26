@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>FahriXZ Store</title>
 
 <link rel="stylesheet" href="css/style.css">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<!-- AI ASSISTANT -->
+<body>
 
+<!-- AI ASSISTANT -->
 <div class="ai-assistant">
 
 <input
@@ -18,7 +22,7 @@ type="text"
 id="aiInput"
 placeholder="Tanya AI Assistant...">
 
-<button onclick="askAI()">
+<button id="aiBtn">
 Kirim
 </button>
 
@@ -26,34 +30,226 @@ Kirim
 
 </div>
 
-<button onclick="requestNotificationPermission()"
+<!-- NOTIF -->
+<button
+onclick="requestNotificationPermission()"
 class="notif-btn">
 
 🔔 Aktifkan Notifikasi
 
 </button>
 
-<script src="js/push-notification.js"></script>
-
 <!-- INSTALL BUTTON -->
-
-<button id="installAppBtn">
+<button id="installAppBtn" style="display:none;">
 📲 Install App
 </button>
 
-<script src="js/ai.js"></script>
+<!-- PRODUCT SKELETON -->
+<div class="product-grid">
+
+<div class="product-card skeleton"
+style="height:220px;">
+</div>
+
+<div class="product-card skeleton"
+style="height:220px;">
+</div>
+
+<div class="product-card skeleton"
+style="height:220px;">
+</div>
+
+</div>
+
+<!-- PROMO -->
+<div class="promo-bar">
+🔥 Flash Sale Hari Ini • Upgrade Premium Cepat • Trusted Store
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+<h2>FahriXZ Store</h2>
+
+<div class="nav-links">
+<a href="#produk">Produk</a>
+<a href="#faq">FAQ</a>
+<a href="#testimoni">Testimoni</a>
+</div>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+<div>
+
+<h1>Jasa Digital Premium</h1>
+
+<p>
+Upgrade e-wallet, QRIS, PPOB, jasa kreatif dan layanan digital.
+</p>
+
+<a href="#produk" class="btn-primary">
+Lihat Produk
+</a>
+
+</div>
+
+<img
+src="assets/banner/banner1.jpg"
+class="hero-image">
+
+</section>
+
+<!-- SLIDER -->
+<section class="slider">
+
+<div class="slider-track" id="sliderTrack">
+
+<img src="assets/banner/banner1.jpg">
+<img src="assets/banner/banner2.jpg">
+<img src="assets/banner/banner3.jpg">
+
+</div>
+
+</section>
+
+<!-- PRODUK -->
+<section class="produk" id="produk">
+
+<h2>🔥 Produk Trending</h2>
+
+<div class="product-grid" id="productGrid">
+
+<div class="product-card">
+<h3>Netflix Premium</h3>
+<p>Rp25.000</p>
+<button>Beli</button>
+</div>
+
+<div class="product-card">
+<h3>Spotify Premium</h3>
+<p>Rp18.000</p>
+<button>Beli</button>
+</div>
+
+<div class="product-card">
+<h3>YouTube Premium</h3>
+<p>Rp20.000</p>
+<button>Beli</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+<section class="stats">
+
+<div class="stats-card">
+<h1 id="trxCounter">12000+</h1>
+<p>Transaksi</p>
+</div>
+
+<div class="stats-card">
+<h1 id="userCounter">8000+</h1>
+<p>User</p>
+</div>
+
+</section>
+
+<!-- TESTIMONI -->
+<section class="testimoni" id="testimoni">
+
+<h2>⭐ Testimoni</h2>
+
+<div class="testi-grid">
+
+<div class="testi-card">
+Trusted Banget 🔥
+</div>
+
+<div class="testi-card">
+Fast Respon ⚡
+</div>
+
+<div class="testi-card">
+Recommended 👑
+</div>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+
+<h2>❓ FAQ</h2>
+
+<div class="faq-item">
+
+<button class="faq-question">
+Apakah aman?
+</button>
+
+<div class="faq-answer">
+Ya aman dan terpercaya.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question">
+Berapa lama proses?
+</button>
+
+<div class="faq-answer">
+Estimasi 5-30 menit.
+</div>
+
+</div>
+
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/6285609949819"
+class="floating-wa">
+
+💬
+
+</a>
+
+<!-- THEME -->
+<button id="themeToggle">
+🌙 Theme
+</button>
+
+<!-- MODULE SCRIPTS -->
+<script type="module" src="js/ai.js"></script>
+
+<script type="module" src="js/app.js"></script>
+
+<!-- NORMAL SCRIPTS -->
+<script src="js/push-notification.js"></script>
 
 <script src="js/notification.js"></script>
 
 <script src="js/utils.js"></script>
 
+<script src="js/theme.js"></script>
+
+<script src="js/loading-bar.js"></script>
+
+<!-- INSTALL SCRIPT -->
 <script>
 
 let deferredPrompt;
 
 window.addEventListener(
 'beforeinstallprompt',
-(e)=>{
+(e) => {
 
 e.preventDefault();
 
@@ -61,8 +257,7 @@ deferredPrompt = e;
 
 document.getElementById(
 'installAppBtn'
-).style.display =
-'block';
+).style.display = 'block';
 
 });
 
@@ -72,9 +267,9 @@ document.getElementById(
 
 .addEventListener(
 'click',
-async()=>{
+async () => {
 
-if(deferredPrompt){
+if (deferredPrompt) {
 
 deferredPrompt.prompt();
 
@@ -82,127 +277,15 @@ deferredPrompt.prompt();
 
 });
 
-if('serviceWorker' in navigator){
+if ('serviceWorker' in navigator) {
 
 navigator.serviceWorker.register(
-'/pwa/service-worker.js'
+'service-worker.js'
 );
 
 }
 
 </script>
 
-<body>
-
-<div class="product-grid"
-id="productGrid">
-
-<!-- SKELETON -->
-
-<div class="product-card skeleton"
-style="height:220px;">
-</div>
-
-<div class="product-card skeleton"
-style="height:220px;">
-</div>
-
-<div class="product-card skeleton"
-style="height:220px;">
-</div>
-
-</div>
-
-<div class="promo-bar">
-🔥 Flash Sale Hari Ini • Upgrade Premium Cepat • Trusted Store
-</div>
-
-<nav class="navbar">
-  <h2>FahriXZ Store</h2>
-
-  <div class="nav-links">
-    <a href="#produk">Produk</a>
-    <a href="#faq">FAQ</a>
-    <a href="#testimoni">Testimoni</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <div>
-    <h1>Jasa Digital Premium</h1>
-    <p>Upgrade e-wallet, QRIS, PPOB, jasa kreatif dan layanan digital.</p>
-
-    <a href="#produk" class="btn-primary">
-      Lihat Produk
-    </a>
-  </div>
-
-  <img src="assets/banner/banner1.jpg" class="hero-image">
-</section>
-
-<section class="slider">
-  <div class="slider-track" id="sliderTrack">
-    <img src="assets/banner/banner1.jpg">
-    <img src="assets/banner/banner2.jpg">
-    <img src="assets/banner/banner3.jpg">
-  </div>
-</section>
-
-<section class="produk" id="produk">
-  <h2>🔥 Produk Trending</h2>
-
-  <div class="product-grid" id="productGrid"></div>
-</section>
-
-<section class="stats">
-  <div class="stats-card">
-    <h1 id="trxCounter">12000+</h1>
-    <p>Transaksi</p>
-  </div>
-
-  <div class="stats-card">
-    <h1 id="userCounter">8000+</h1>
-    <p>User</p>
-  </div>
-</section>
-
-<section class="testimoni" id="testimoni">
-  <h2>⭐ Testimoni</h2>
-
-  <div class="testi-grid">
-    <div class="testi-card">Trusted Banget 🔥</div>
-    <div class="testi-card">Fast Respon ⚡</div>
-    <div class="testi-card">Recommended 👑</div>
-  </div>
-</section>
-
-<section class="faq" id="faq">
-  <h2>❓ FAQ</h2>
-
-  <div class="faq-item">
-    <button class="faq-question">Apakah aman?</button>
-    <div class="faq-answer">Ya aman dan terpercaya.</div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">Berapa lama proses?</button>
-    <div class="faq-answer">Estimasi 5-30 menit.</div>
-  </div>
-</section>
-
-<a href="https://wa.me/6285609949819" class="floating-wa">
-💬
-</a>
-
-<script type="module" src="js/app.js"></script>
-
-<button id="themeToggle">
-🌙 Theme
-</button>
-
-<script src="js/theme.js"></script>
-
-<script src="js/loading-bar.js"></script>
-
 </body>
-</html>
+  </html>
